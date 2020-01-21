@@ -5,12 +5,12 @@ const navigator = createStackNavigator({
 
 
   Search:SearchScreen
-
+  
   
 
 },{initialRouteName:'Search',
 defaultNavigationOptions:{
-  title:'Food app!'
+  headerShown:false
 }})
 
 export default createAppContainer(navigator)
