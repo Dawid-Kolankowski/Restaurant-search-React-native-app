@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import ResultsList from "../components/ResultsList";
 import useResults from "../hooks/useResults";
 
-const SearchScreen = ({navigation}) => {
+const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchApi, results, errorMessage] = useResults();
 
@@ -21,14 +21,27 @@ const SearchScreen = ({navigation}) => {
         onTermSubmit={() => searchApi(searchTerm)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-       
-      >
-        <ResultsList results={priceFilter("$")} title="Cheap" navigation={navigation}/>
-        <ResultsList results={priceFilter("$$")} title="Regular Price" navigation={navigation}/>
-        <ResultsList results={priceFilter("$$$")} title="Expensive" navigation={navigation}/>
-        <ResultsList results={priceFilter("$$$$")} title="Very expensive" navigation={navigation} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ResultsList
+          results={priceFilter("$")}
+          title="Cheap"
+         
+        />
+        <ResultsList
+          results={priceFilter("$$")}
+          title="Normal Price"
+         
+        />
+        <ResultsList
+          results={priceFilter("$$$")}
+          title="Expensive"
+         
+        />
+        <ResultsList
+          results={priceFilter("$$$$")}
+          title="Very expensive"
+         
+        />
       </ScrollView>
     </View>
   );
@@ -38,8 +51,7 @@ const styles = StyleSheet.create({
   background: {
     backgroundColor: "white",
     flex: 1
-  },
-  
+  }
 });
 
 export default SearchScreen;
